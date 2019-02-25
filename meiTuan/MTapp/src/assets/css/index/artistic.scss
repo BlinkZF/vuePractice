@@ -15,13 +15,16 @@
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     cursor: pointer;
+
     &.istyle {
       background-color: rgb(190, 164, 116);
       background-image: linear-gradient(to right, rgb(194, 176, 142) 3%, rgb(190, 164, 116) 100%);
     }
+
     &.youhui {
       background: linear-gradient(to right, rgb(250, 60, 104) 2%, rgb(254, 70, 77) 97%) rgb(250, 60, 104);
     }
+
     dt {
       font-size: 18px;
       margin-left: 13px;
@@ -72,7 +75,7 @@
     >li {
       width: 33.3%;
       height: 314px;
-      padding:5px 10px;
+      padding: 5px 10px;
       box-sizing: border-box;
       float: left;
       background: #fff;
@@ -85,6 +88,7 @@
         border: none;
         overflow: visible;
         background-color: transparent;
+
         img {
           max-width: 100%;
           width: 100%;
@@ -109,6 +113,7 @@
               text-overflow: ellipsis;
               cursor: pointer;
             }
+
             .sub-title {
               font-size: 12px;
               color: #999;
@@ -119,39 +124,46 @@
               overflow: hidden;
               text-overflow: ellipsis;
             }
+
             .price-info {
               height: 27px;
               overflow: hidden;
               margin-bottom: 10px;
+
               .price-symbol {
-                  font-size: 14px;
-                  color: #BE9E4D;
-                  font-weight: 500;
+                font-size: 14px;
+                color: #BE9E4D;
+                font-weight: 500;
               }
+
               .current-price {
-                  font-size: 22px;
-                  color: #BE9E4D;
-                  margin-right: 6px;
-                  letter-spacing: -.8px;
-                  cursor: pointer;
+                font-size: 22px;
+                color: #BE9E4D;
+                margin-right: 6px;
+                letter-spacing: -.8px;
+                cursor: pointer;
               }
+
               .old-price {
-                  font-size: 12px;
-                  color: #999;
-                  text-decoration: line-through;
+                font-size: 12px;
+                color: #999;
+                text-decoration: line-through;
               }
+
               .sold {
                 font-size: 12px;
                 color: #999;
                 float: right;
                 margin-top: 10px;
               }
+
               .units {
                 color: #BE9E4D;
                 cursor: pointer;
                 font-size: 12px;
               }
             }
+
             .pos {
               font-size: 12px;
 

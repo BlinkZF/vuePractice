@@ -19,7 +19,7 @@ module.exports = {
   // 当vue代码不规范的时候，他会提示错误
   // 如果想自动规范化的话  下载插件esLint-vuefix-plugin
   plugins: [
-    'vue'
+    'vuefix'
   ],
   // add your custom rules here
   rules: {

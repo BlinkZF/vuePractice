@@ -13,10 +13,10 @@
 import geo from './geo.vue'
 import myNav from './nav.vue'
 export default {
-    components:{
-        geo,
-        myNav,
-    }
+  components: {
+    geo,
+    myNav
+  }
 }
 </script>
 
