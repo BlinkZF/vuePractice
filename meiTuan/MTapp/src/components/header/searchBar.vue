@@ -11,12 +11,12 @@
           <dl class="hotPlace" v-if="isHotPlace">
             <dt>热门搜索</dt>
             <dd v-for="(item,index) in hotPlaceList" :key="index">
-              <router-link :to="{name:'goods',parmas:{name:item}}">{{item}}</router-link>
+              <router-link :to="{ name: 'goods', params:{name:item}}">{{item}}</router-link>
             </dd>
           </dl>
           <dl class="searchList" v-if="isSearchList">
             <dd v-for="(item,index) in searchList" :key="index">
-              <router-link :to="{name:'goods',parmas:{name:item}}">{{item}}</router-link>
+              <router-link :to="{ name: 'goods', params:{name:item} }">{{item}}</router-link>
             </dd>
           </dl>
         </div>
@@ -30,42 +30,42 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      searchWorld: '',
+      searchWorld: "",
       isFocus: false,
-      hotPlaceList: ['故宫博物院', '北京世界公园', '颐和园', '北京欢乐谷'],
+      hotPlaceList: ["故宫博物院", "北京世界公园", "颐和园", "北京欢乐谷"],
       searchList: [1, 2, 3, 4, 5, 6, 7],
       suggestList: [
-        '故宫博物院',
-        '北京世界公园',
-        '颐和园',
-        '北京欢乐谷',
-        '故宫珍宝馆南宫',
-        '2019新春游园灯光夜'
+        "故宫博物院",
+        "北京世界公园",
+        "颐和园",
+        "北京欢乐谷",
+        "故宫珍宝馆南宫",
+        "2019新春游园灯光夜"
       ]
-    }
+    };
   },
   computed: {
-    isHotPlace: function () {
-      return this.isFocus && !this.searchWorld
+    isHotPlace: function() {
+      return this.isFocus && !this.searchWorld;
     },
-    isSearchList: function () {
-      return this.isFocus && this.searchWorld
+    isSearchList: function() {
+      return this.isFocus && this.searchWorld;
     }
   },
   methods: {
-    focus () {
-      this.isFocus = true
+    focus() {
+      this.isFocus = true;
     },
-    blur () {
-      let selt = this
+    blur() {
+      let self = this;
       setTimeout(() => {
-        self.isFocus = false
-      }, 200)
+        self.isFocus = false;
+      }, 200);
     }
   }
-}
+};
 </script>
 
 <style lang = "scss">

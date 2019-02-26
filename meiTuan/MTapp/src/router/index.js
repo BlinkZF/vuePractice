@@ -4,10 +4,12 @@ import defaultPage from '@/layout/defaultPage.vue'
 import blankPage from '@/layout/blankPage.vue'
 import goodList from '@/page/goodList.vue'
 import index from '@/page/index.vue'
+import changeCity from '@/page/changeCity.vue'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -24,6 +26,11 @@ export default new Router({
           path: '/index',
           name: 'index',
           component: index
+        },
+        {
+          path: '/changeCity',
+          name: 'changeCity',
+          component: changeCity
         }
       ]
     },

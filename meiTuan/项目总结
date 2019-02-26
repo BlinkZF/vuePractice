@@ -9,3 +9,10 @@
 scss：
 ‘&’：连体符，使用的时候用&代替了选择元素的自身
 toLowerCase();将字符串转成小写
+vue操作dom方法
+<div class="box" ref="box1"></div>
+this.$refs.box1.style.background="black";
+mode: 'history',每次跳转刷新页面
+
+获取地理位置信息 异步过程，相当于一个监听的过程
+navigator.geolocation.getCurrentPosition((res) => {console.log('xxx')})
