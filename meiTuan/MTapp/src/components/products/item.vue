@@ -1,7 +1,7 @@
 <template>
   <dl class="s-item">
     <dt>
-      <img src="meta.image" alt="图片">
+      <img :src= meta.image alt="图片未加载">
     </dt>
     <dd>
       <h3>

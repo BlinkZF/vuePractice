@@ -6,7 +6,13 @@
       </el-col>
       <el-col :span="15" class="center">
         <div class="wrapper">
-          <el-input v-model="searchWorld" placeholder="请输入内容" @focus="focus" @blur="blur"></el-input>
+          <el-input
+            v-model="searchWorld"
+            placeholder="请输入内容"
+            @focus="focus"
+            @blur="blur"
+            @input="Input"
+          ></el-input>
           <el-button type="primary" icon="el-icon-search"></el-button>
           <dl class="hotPlace" v-if="isHotPlace">
             <dt>热门搜索</dt>
@@ -15,8 +21,8 @@
             </dd>
           </dl>
           <dl class="searchList" v-if="isSearchList">
-            <dd v-for="(item,index) in searchList" :key="index">
-              <router-link :to="{ name: 'goods', params:{name:item} }">{{item}}</router-link>
+            <dd v-for="(v,i) in searchList" :key="i">
+              <router-link :to="{ name: 'goods', params:{name:v} }">{{v}}</router-link>
             </dd>
           </dl>
         </div>
@@ -29,22 +35,22 @@
 </template>
 
 <script>
+import api from "@/api/index.js";
 export default {
   data() {
     return {
       searchWorld: "",
       isFocus: false,
-      hotPlaceList: ["故宫博物院", "北京世界公园", "颐和园", "北京欢乐谷"],
-      searchList: [1, 2, 3, 4, 5, 6, 7],
-      suggestList: [
-        "故宫博物院",
-        "北京世界公园",
-        "颐和园",
-        "北京欢乐谷",
-        "故宫珍宝馆南宫",
-        "2019新春游园灯光夜"
-      ]
+      hotPlaceList: [],
+      searchList: [],
+      suggestList: []
     };
+  },
+  created() {
+    api.getSearchHotWords().then(res => {
+      this.suggestList = res.data.data;
+      this.hotPlaceList = res.data.data.slice(0,4);
+    });
   },
   computed: {
     isHotPlace: function() {
@@ -63,8 +69,19 @@ export default {
       setTimeout(() => {
         self.isFocus = false;
       }, 200);
+    },
+    Input() {
+        api.getSearch().then(res => {
+          // 前端过滤
+          let val = this.searchWorld;
+          console.log(res);
+          this.searchList = res.data.data.list.filter((item, index) => {
+            return item.indexOf(val) > -1
+          });
+        });
     }
   }
+
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div class="m-hcity">
     <dl>
       <dt>{{title}}</dt>
-      <dd v-for="(item,index) in list" :key="index">{{item}}</dd>
+      <dd v-for="(item,index) in list" :key="index">{{item.name}}</dd>
     </dl>
   </div>
 </template>

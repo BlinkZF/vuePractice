@@ -16,3 +16,6 @@ mode: 'history',每次跳转刷新页面
 
 获取地理位置信息 异步过程，相当于一个监听的过程
 navigator.geolocation.getCurrentPosition((res) => {console.log('xxx')})
+
+axios数据请求
+自动转数据化为json格式

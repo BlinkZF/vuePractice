@@ -12,7 +12,9 @@
             <list/>
         </el-row>
       </el-col>
-      <el-col :span="5">map+fav</el-col>
+      <el-col :span="5">
+          <map-list/>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -21,11 +23,13 @@
 import crumbs from "@/components/products/crumbs.vue"
 import categroy from "@/components/products/categroy.vue"
 import list from "@/components/products/list.vue"
+import mapList from "@/components/products/mapList.vue"
 export default {
     components:{
         crumbs,
         categroy,
-        list
+        list,
+        mapList,
     }
 };
 </script>

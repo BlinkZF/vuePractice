@@ -1,5 +1,7 @@
 <template>
-    <div class="page-black">1111</div>
+    <div class="page-black">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>

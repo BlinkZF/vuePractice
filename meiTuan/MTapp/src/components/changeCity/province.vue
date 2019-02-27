@@ -7,7 +7,8 @@
       :value="province"
       :showWrapperActive="provinceActive"
       @change_active="changeProvinceActive"
-       @change = "changeProvince"
+      @change = "changeProvince"
+      className= "province"
     />
     <m-select
       :list="cityList"
@@ -16,6 +17,8 @@
       :showWrapperActive="cityActive"
       @change_active="changeCityActive"
       @change = "changeCity"
+      :disabled = cityDisabled
+      className= "city"
     />
     <span>直接搜索</span>
     <el-select
@@ -34,63 +37,16 @@
 
 <script>
 import MSelect from "./select.vue";
+import api from "@/api/index.js"
 export default {
   components: {
     MSelect
   },
   data() {
     return {
-      provinceList: [
-        "山东",
-        "甘肃",
-        "江苏",
-        "北京",
-        "云南",
-        "海南",
-        "浙江",
-        "上海",
-        "天津",
-        "陕西",
-        "新疆",
-        "贵州"
-        // "安徽",
-        // "澳门",
-        // "湖南",
-        // "河北",
-        // "香港",
-        // "辽宁",
-        // "四川",
-        // "宁夏",
-        // "吉林",
-        // "福建",
-        // "湖北",
-        // "广东",
-        // "重庆",
-        // "山西",
-        // "江西",
-        // "黑龙江",
-        // "青海",
-        // "河南",
-        // "台湾",
-        // "内蒙古",
-        // "西藏",
-        // "广西"
-      ],
+      provinceList: [],
       province: "省份",
-      cityList: [
-        "西安",
-        "铜川",
-        "宝鸡",
-        "咸阳",
-        "渭南",
-        "延安",
-        "汉中",
-        "榆林",
-        "安康",
-        "商洛",
-        "华阴",
-        "兴平"
-      ],
+      cityList: [],
       city: "城市",
       provinceActive: false,
       cityActive: false,
@@ -105,8 +61,17 @@ export default {
         "霸州",
         "巴彦淖尔"
       ],
-      searchWord: ""
+      searchWord: "",
+      cityDisabled:true,
     };
+  },
+  created () {
+    api.getProvince().then(res=>{
+      this.provinceList = res.data.data.map(item => {
+        item.name = item.provinceName;
+        return item;
+      });
+    })
   },
   methods: {
     changeProvinceActive(flag) {
@@ -126,12 +91,14 @@ export default {
       console.log(e);
     },
     changeProvince(value){
-      console.log(value)
-      this.province = value
+      this.province = value.name
+      this.cityDisabled = false;
+      this.cityList = value.cityInfoList
     },
     changeCity(value){
-      console.log(value)
-      this.city = value
+      this.city = value.name
+      this.$store.dispatch('setPosition',value)
+      this.$router.push({name:'index'})
     }
   }
 };

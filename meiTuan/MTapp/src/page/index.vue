@@ -25,6 +25,7 @@
 import MMenu from "@/components/index/menu.vue";
 import MLife from "@/components/index/life.vue";
 import MContainer from "@/components/index/container.vue";
+
 export default {
   data() {
     return {

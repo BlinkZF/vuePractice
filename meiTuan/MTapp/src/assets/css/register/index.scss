@@ -23,7 +23,8 @@
         float: right;
         height: 36px;
         line-height: 36px;
-        a {
+
+        .login-reg {
           padding: 5px 10px;
           background-color: #2db3a6;
           color: aliceblue;
@@ -48,26 +49,89 @@
     padding-right: 550px;
     box-sizing: border-box;
 
+    .rel {
+      position: relative;
+    }
+
+    .form-field {
+      padding-bottom: 27px;
+      position: relative;
+      padding: 8px 0px 8px 0px;
+      zoom: 1;
+
+      .pw-strength {
+        position: absolute;
+        width: 330px;
+        height: 20px;
+        background: #eee;
+
+        .bar {
+          background: #34e4fc;
+          height: 20px;
+          width: 0px;
+          overflow: hidden;
+          &.week{
+            width:108px;
+            background: #f76120;
+          }
+          &.normal{
+            width:218px;
+            background: #ff8900;
+          }
+          &.strong{
+            width:330px;
+            background: #5bab3c;
+          }
+        }
+
+        .letter {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+
+          span {
+            display: block;
+            float: left;
+            text-align: center;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            color: rgb(87, 86, 86);
+            width: 108.6px;
+            border-right: 2px solid rgb(36, 34, 34);
+          }
+        }
+      }
+    }
+
     .status {
       font-size: 12px;
       margin-left: 20px;
       color: #e6a23c;
     }
 
+
     .error {
       color: red;
     }
+
     .f1 {
       display: block;
     }
   }
+
   >footer {
     color: #999;
     border-top: 1px solid #EEE;
     padding-top: 20px;
     font-size: 13px;
   }
+
   a {
     text-decoration: none;
   }
+}
+
+.letter span:nth-last-child(1){
+  border-right: 0px solid rgb(36, 34, 34) !important;
 }

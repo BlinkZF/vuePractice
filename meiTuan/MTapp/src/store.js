@@ -4,9 +4,9 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  position: '北京'
+  position: {}
 }
-const mutation = {
+const mutations = {
   setPosition (state, value) {
     state.position = value
   }
@@ -21,6 +21,6 @@ const actions = {
 
 export default new Vuex.Store({
   state,
-  mutation,
+  mutations,
   actions
 })
