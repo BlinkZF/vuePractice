@@ -1,3 +1,4 @@
+<!--注册登陆页面载体-->
 <template>
     <div class="page-black">
         <router-view></router-view>

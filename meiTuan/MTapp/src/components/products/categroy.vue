@@ -1,3 +1,4 @@
+<!--商家推荐==分类区域模块-->
 <template>
   <div class="m-product-categroy">
     <dl class="classic">
@@ -19,50 +20,21 @@
 
 <script>
 import MSelect from "./select.vue";
+import api from "@/api/index.js"
 export default {
   components: {
     MSelect
   },
   data() {
     return {
-      menuList: [
-        {
-          title: "美食",
-          type: "food",
-          subList: [
-            {
-              name: "日本菜",
-              id: "Japan"
-            }
-          ]
-        },
-        {
-          title: "酒店住宿",
-          type: "hotal",
-          subList: [
-            {
-              name: "温泉酒店",
-              id: "hot_spring"
-            }
-          ]
-        }
-      ],
-      areaList: [
-        {
-          title: "推荐商圈",
-          subList: [
-            {
-              name: "望京",
-              id: 120000
-            },
-            {
-              name: "昌平",
-              id: 12222
-            }
-          ]
-        }
-      ]
+      menuList: []
     };
+  },
+  created () {
+    api.getClassify().then(res=>{
+      this.menuList = res.data.data
+      console.log(this.menuList);
+    })
   }
 };
 </script>

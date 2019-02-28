@@ -1,3 +1,4 @@
+<!--商家推荐==下拉选择框组件-->
 <template>
     <div class="m-product-select">
         <dl class="tab">
@@ -16,14 +17,8 @@
 <script>
 export default {
     props: ['name','list'],
-    data() {
-        return {
-
-        }
-    },
 }
 </script>
 
 <style lang = "scss">
-
 </style>

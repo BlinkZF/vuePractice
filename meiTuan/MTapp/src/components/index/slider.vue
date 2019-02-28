@@ -1,3 +1,4 @@
+<!--首页-轮播图  图片-->
 <template>
   <div class="slide">
     <el-carousel>

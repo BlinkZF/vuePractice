@@ -1,3 +1,4 @@
+<!--顶部导航栏-->
 <template>
   <div class="m-geo">
     <div class="position">
@@ -10,7 +11,7 @@
       </span>
       <span>]</span>
     </div>
-    <div class="m-user">
+    <div class="m-user" v-if="!$store.state.userName">
       <router-link class="login" :to="{name:'login'}">立即登录</router-link>
       <router-link class="register" :to="{name:'register'}">注册</router-link>
     </div>
@@ -25,6 +26,7 @@ export default {
       nearCity: {}
     };
   },
+  // 监听状态管理器中的数据变化,当城市变更时候改变数据
   watch: {
     "$store.state.position":function(){
       this.nearCity = this.$store.state.position.nearCity
@@ -32,7 +34,6 @@ export default {
   },
   created() {
     api.getPosition().then(res => {
-      console.log(res)
       this.$store.dispatch("setPosition", res.data.data);
       this.nearCity = res.data.data.nearCity;
     });

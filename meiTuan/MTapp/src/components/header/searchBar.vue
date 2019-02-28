@@ -1,3 +1,4 @@
+<!--搜索框模块-->
 <template>
   <dir class="search-panel">
     <el-row class="m-header-searchbar">
@@ -8,7 +9,7 @@
         <div class="wrapper">
           <el-input
             v-model="searchWorld"
-            placeholder="请输入内容"
+            placeholder="搜索商家或地点"
             @focus="focus"
             @blur="blur"
             @input="Input"
@@ -17,6 +18,7 @@
           <dl class="hotPlace" v-if="isHotPlace">
             <dt>热门搜索</dt>
             <dd v-for="(item,index) in hotPlaceList" :key="index">
+              <!-- **** 这里的parmas 与 route.js文件中的 goodList 中的path映射 -->
               <router-link :to="{ name: 'goods', params:{name:item}}">{{item}}</router-link>
             </dd>
           </dl>
@@ -49,9 +51,10 @@ export default {
   created() {
     api.getSearchHotWords().then(res => {
       this.suggestList = res.data.data;
-      this.hotPlaceList = res.data.data.slice(0,4);
+      this.hotPlaceList = res.data.data.slice(0, 4);
     });
   },
+  // 热门搜索，搜索列表
   computed: {
     isHotPlace: function() {
       return this.isFocus && !this.searchWorld;
@@ -71,17 +74,17 @@ export default {
       }, 200);
     },
     Input() {
-        api.getSearch().then(res => {
-          // 前端过滤
-          let val = this.searchWorld;
-          console.log(res);
-          this.searchList = res.data.data.list.filter((item, index) => {
-            return item.indexOf(val) > -1
-          });
+      api.getSearch().then(res => {
+        // 前端过滤
+        let val = this.searchWorld;
+        console.log(res);
+        // 搜索过滤
+        this.searchList = res.data.data.list.filter((item, index) => {
+          return item.indexOf(val) > -1;
         });
+      });
     }
   }
-
 };
 </script>
 

@@ -70,16 +70,19 @@
           height: 20px;
           width: 0px;
           overflow: hidden;
-          &.week{
-            width:108px;
+
+          &.week {
+            width: 108px;
             background: #f76120;
           }
-          &.normal{
-            width:218px;
+
+          &.normal {
+            width: 218px;
             background: #ff8900;
           }
-          &.strong{
-            width:330px;
+
+          &.strong {
+            width: 330px;
             background: #5bab3c;
           }
         }
@@ -120,18 +123,30 @@
     }
   }
 
-  >footer {
+  >.footer {
     color: #999;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #ccc;
     padding-top: 20px;
     font-size: 13px;
+    height: 30px;
+
+    .copyright {
+      margin-top: 0px;
+      text-align: center;
+    }
   }
+
 
   a {
     text-decoration: none;
   }
 }
 
-.letter span:nth-last-child(1){
+.letter span:nth-last-child(1) {
   border-right: 0px solid rgb(36, 34, 34) !important;
+}
+
+.btn-register {
+  background: #2db3a6;
+  border-bottom: 1px solid rgb(156, 155, 155);
 }

@@ -1,3 +1,4 @@
+<!--按省份选择模块-->
 <template>
   <div>
     <span class="name">按省份选择</span>
@@ -87,14 +88,16 @@ export default {
       }
     },
     remoteMethod(e) {
-      //当输入的时候进行远程搜索,请求后端接口
+      //当输入的时候进行远程搜索,请求后端接口  (未实现)
       console.log(e);
     },
+    // 改变省会,才可点击城市,
     changeProvince(value){
       this.province = value.name
       this.cityDisabled = false;
       this.cityList = value.cityInfoList
     },
+    // 改变城市---同时反馈到顶部导航栏
     changeCity(value){
       this.city = value.name
       this.$store.dispatch('setPosition',value)

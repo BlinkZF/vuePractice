@@ -1,3 +1,4 @@
+<!--网页模板-底部模块-->
 <template>
   <div class="com-footer">
     <div class="footer-content">

@@ -1,3 +1,4 @@
+<!--选择城市 按拼音首字母选择组件-->
 <template>
   <div>
     <dl class="m-categroy">
@@ -47,9 +48,6 @@ export default {
       });
       this.cityGroup = obj;
     });
-
-    // 对数据按照首字母进行分组
-
   }
 };
 </script>

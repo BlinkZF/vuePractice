@@ -1,3 +1,4 @@
+<!--下拉选择框-->
 <template>
   <div
     :class="['choose-wrap', disabled ? 'disabled':'']"
@@ -26,6 +27,7 @@
 
 <script>
 export default {
+  // 单向--接收父组件传递过来的数据
   props: ["list", "title", "value", "showWrapperActive", "disabled","className"],
   computed: {
     renderList: function() {
@@ -49,6 +51,7 @@ export default {
       }
     },
     documentClick(e) {
+      // 触发当前实例上的事件  触发父组件中<m-select>标签上的方法
       this.$emit("change_active", false);
     },
     changeValue(item) {

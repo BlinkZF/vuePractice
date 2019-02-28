@@ -1,3 +1,4 @@
+<!--首页 中部内容模块-->
 <template>
   <div class="page-index">
     <el-row>
