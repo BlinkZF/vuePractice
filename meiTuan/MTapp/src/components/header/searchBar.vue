@@ -3,6 +3,7 @@
   <dir class="search-panel">
     <el-row class="m-header-searchbar">
       <el-col :span="3" class="left">
+        <!-- <router-link class="img" to="/"></router-link> -->
         <img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png" alt>
       </el-col>
       <el-col :span="15" class="center">

@@ -2,7 +2,7 @@
 <template>
   <div class="page-login">
     <div class="login-header">
-      <a href="" class="logo"></a>
+      <router-link class="logo" to="/"></router-link>
     </div>
     <div class="login-panel">
       <div class="banner">
